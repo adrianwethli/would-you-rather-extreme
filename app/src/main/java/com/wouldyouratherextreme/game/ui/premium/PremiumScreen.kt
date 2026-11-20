@@ -146,7 +146,7 @@ private fun IncludedCard(modifier: Modifier = Modifier) {
                 color = MaterialTheme.colorScheme.onSurface,
             )
             listOf(
-                "50 more questions across all five categories",
+                "50 more insane questions",
                 "New packs planned for the future",
                 "One-time purchase, no subscription",
                 "No ads, works fully offline",

@@ -8,7 +8,7 @@ A native Android party game for groups sharing one phone. Dark, modern look. Wor
 
 ## Planned
 
-- 50 free and 50 premium original questions across five categories
+- 50 free and 50 premium original questions (no categories, just insane questions)
 - More premium packs added over time
 - One-time premium unlock through Google Play Billing
 

@@ -85,18 +85,11 @@ fun GameScreen(
         ) { question ->
             Column(modifier = Modifier.fillMaxSize()) {
                 Text(
-                    text = question.category.label.uppercase(),
-                    style = MaterialTheme.typography.labelLarge,
-                    fontWeight = FontWeight.Bold,
-                    letterSpacing = 2.sp,
-                    color = MaterialTheme.colorScheme.secondary,
-                    modifier = Modifier.padding(top = 8.dp),
-                )
-                Text(
                     text = "Would you rather…",
                     style = MaterialTheme.typography.headlineSmall,
-                    color = MaterialTheme.colorScheme.onBackground,
-                    modifier = Modifier.padding(vertical = 8.dp),
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.secondary,
+                    modifier = Modifier.padding(vertical = 12.dp),
                 )
                 AnswerCard(
                     text = question.optionA,

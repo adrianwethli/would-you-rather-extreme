@@ -8,7 +8,6 @@ class GameSessionTest {
 
     private fun question(id: String) = Question(
         id = id,
-        category = Category.FUNNY_CRAZY,
         optionA = "A $id",
         optionB = "B $id",
     )
