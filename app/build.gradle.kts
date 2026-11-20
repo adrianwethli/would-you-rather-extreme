@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.adrianwethli.wouldyouratherextreme"
+    namespace = "com.wouldyouratherextreme.game"
     // compileSdk = which Android APIs we compile against (Compose 1.12 needs 37).
     // targetSdk below is separate and stays at 36, which is what Google Play requires.
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.adrianwethli.wouldyouratherextreme"
+        applicationId = "com.wouldyouratherextreme.game"
         minSdk = 26
         targetSdk = 36
         versionCode = 1

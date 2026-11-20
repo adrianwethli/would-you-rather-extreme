@@ -1,4 +1,4 @@
-package com.adrianwethli.wouldyouratherextreme
+package com.wouldyouratherextreme.game
 
 import android.graphics.Color as AndroidColor
 import android.os.Bundle
@@ -23,7 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.adrianwethli.wouldyouratherextreme.ui.theme.WouldYouRatherExtremeTheme
+import com.wouldyouratherextreme.game.ui.theme.WouldYouRatherExtremeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

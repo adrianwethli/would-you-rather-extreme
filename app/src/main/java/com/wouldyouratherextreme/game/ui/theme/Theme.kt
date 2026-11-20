@@ -1,4 +1,4 @@
-package com.adrianwethli.wouldyouratherextreme.ui.theme
+package com.wouldyouratherextreme.game.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme

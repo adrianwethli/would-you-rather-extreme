@@ -23,7 +23,7 @@ Builds run in the cloud with GitHub Actions (`.github/workflows/android-build.ym
 ## Project facts
 
 - Kotlin and Jetpack Compose
-- App ID: `com.adrianwethli.wouldyouratherextreme`
+- App ID: `com.wouldyouratherextreme.game`
 - Minimum Android 8.0 (API 26), targets Android 16 (API 36)
 
 ## Secrets
