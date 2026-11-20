@@ -12,6 +12,9 @@ private val ExtremeColors = darkColorScheme(
     onPrimary = Color(0xFF0B0D17),
     secondary = Color(0xFF4DA3FF),
     onSecondary = Color(0xFF0B0D17),
+    // Used for the answer card the group has picked: a dark pink tint with light text.
+    primaryContainer = Color(0xFF3A1F2B),
+    onPrimaryContainer = Color(0xFFFFE3E8),
     background = Color(0xFF0B0D17),
     onBackground = Color(0xFFF4F5FA),
     surface = Color(0xFF151827),

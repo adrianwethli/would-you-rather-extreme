@@ -4,7 +4,7 @@ A native Android party game for groups sharing one phone. Dark, modern look. Wor
 
 ## Status
 
-**Stage 0 - project scaffold and cloud build.** The app currently shows a placeholder screen only.
+**Stage 1 - first playable prototype.** A home screen with a Play button and a Premium card (placeholder), and a game screen with two large answer cards and a Next button. It uses 3 temporary sample questions; the real question packs and saved progress come in later stages.
 
 ## Planned
 
