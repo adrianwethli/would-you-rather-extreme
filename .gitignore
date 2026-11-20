@@ -1,0 +1,23 @@
+# Gradle / build output
+.gradle/
+build/
+.kotlin/
+
+# Local machine settings
+local.properties
+.idea/
+*.iml
+.DS_Store
+
+# Android build leftovers
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Secrets - never commit signing keys or credentials
+*.jks
+*.keystore
+keystore.properties
+*.pem
+.env
+google-services.json
