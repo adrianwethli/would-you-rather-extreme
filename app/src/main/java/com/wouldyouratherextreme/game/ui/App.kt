@@ -12,28 +12,36 @@ import com.wouldyouratherextreme.game.domain.Choice
 import com.wouldyouratherextreme.game.domain.GameSession
 import com.wouldyouratherextreme.game.ui.game.GameScreen
 import com.wouldyouratherextreme.game.ui.home.HomeScreen
+import com.wouldyouratherextreme.game.ui.premium.PremiumScreen
+
+private enum class Screen { HOME, GAME, PREMIUM }
 
 /**
- * Root of the app. With only two screens, a simple "playing or not" switch is enough;
- * a proper navigation library can be added when more screens (like Premium) arrive.
+ * Root of the app. With only three screens, a simple switch between them is enough;
+ * a proper navigation library can be added later if the app grows.
  */
 @Composable
 fun WouldYouRatherExtremeApp() {
-    var playing by rememberSaveable { mutableStateOf(false) }
+    var screen by rememberSaveable { mutableStateOf(Screen.HOME) }
     var session by rememberSaveable(stateSaver = GameSessionSaver) {
         mutableStateOf(GameSession(SampleQuestions.all))
     }
 
-    Crossfade(targetState = playing, label = "screen") { isPlaying ->
-        if (isPlaying) {
-            GameScreen(
+    Crossfade(targetState = screen, label = "screen") { current ->
+        when (current) {
+            Screen.HOME -> HomeScreen(
+                onPlay = { screen = Screen.GAME },
+                onPremium = { screen = Screen.PREMIUM },
+            )
+
+            Screen.GAME -> GameScreen(
                 session = session,
                 onChoose = { session = session.choose(it) },
                 onNext = { session = session.next() },
-                onBack = { playing = false },
+                onBack = { screen = Screen.HOME },
             )
-        } else {
-            HomeScreen(onPlay = { playing = true })
+
+            Screen.PREMIUM -> PremiumScreen(onBack = { screen = Screen.HOME })
         }
     }
 }

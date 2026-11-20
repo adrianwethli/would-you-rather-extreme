@@ -25,7 +25,11 @@ import androidx.compose.ui.unit.sp
 import com.wouldyouratherextreme.game.ui.theme.WouldYouRatherExtremeTheme
 
 @Composable
-fun HomeScreen(onPlay: () -> Unit, modifier: Modifier = Modifier) {
+fun HomeScreen(
+    onPlay: () -> Unit,
+    onPremium: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -53,7 +57,7 @@ fun HomeScreen(onPlay: () -> Unit, modifier: Modifier = Modifier) {
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "Pick a side. Defend it. Together on one phone.",
+            text = "Pick a side. Defend it. Together on one phone.\nNo bullshit. Only insane questions.",
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onBackground,
             textAlign = TextAlign.Center,
@@ -77,14 +81,15 @@ fun HomeScreen(onPlay: () -> Unit, modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        PremiumCard()
+        PremiumCard(onClick = onPremium)
     }
 }
 
-/** Placeholder for the Premium section. The real purchase flow comes in a later stage. */
+/** The Premium section on the home screen. Tapping it opens the Premium page. */
 @Composable
-private fun PremiumCard(modifier: Modifier = Modifier) {
+private fun PremiumCard(onClick: () -> Unit, modifier: Modifier = Modifier) {
     Surface(
+        onClick = onClick,
         modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(24.dp),
         color = MaterialTheme.colorScheme.surface,
@@ -105,7 +110,7 @@ private fun PremiumCard(modifier: Modifier = Modifier) {
                 color = MaterialTheme.colorScheme.onSurface,
             )
             Text(
-                text = "Coming soon",
+                text = "See what's inside →",
                 style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.secondary,
@@ -118,6 +123,6 @@ private fun PremiumCard(modifier: Modifier = Modifier) {
 @Composable
 private fun HomeScreenPreview() {
     WouldYouRatherExtremeTheme {
-        HomeScreen(onPlay = {})
+        HomeScreen(onPlay = {}, onPremium = {})
     }
 }
