@@ -24,6 +24,8 @@ android {
 
     buildFeatures {
         compose = true
+        // Lets the code know whether this is a test (debug) build or a public (release) build.
+        buildConfig = true
     }
 }
 

@@ -19,10 +19,15 @@ class MainActivity : ComponentActivity() {
             navigationBarStyle = SystemBarStyle.dark(AndroidColor.TRANSPARENT),
         )
         // The questions are stored inside the app (assets/questions), so the game works offline.
-        val questions = QuestionRepository(assets).loadFreePack().questions
+        val library = QuestionRepository(assets).loadLibrary()
         setContent {
             WouldYouRatherExtremeTheme {
-                WouldYouRatherExtremeApp(questions = questions, onExit = { finish() })
+                WouldYouRatherExtremeApp(
+                    library = library,
+                    // The simulated payment exists only in test (debug) builds, never in a public release.
+                    allowTestUnlock = BuildConfig.DEBUG,
+                    onExit = { finish() },
+                )
             }
         }
     }

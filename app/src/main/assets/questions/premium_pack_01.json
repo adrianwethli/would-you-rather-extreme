@@ -1,0 +1,259 @@
+{
+  "packId": "premium-1",
+  "premium": true,
+  "questions": [
+    {
+      "id": "premium1-001",
+      "optionA": "Lose your sense of taste",
+      "optionB": "Lose your sense of smell"
+    },
+    {
+      "id": "premium1-002",
+      "optionA": "Read minds but never be able to turn it off",
+      "optionB": "See the future but never be able to change it"
+    },
+    {
+      "id": "premium1-003",
+      "optionA": "Have burps that sound like a barking dog",
+      "optionB": "Have sneezes that sound like an orgasm"
+    },
+    {
+      "id": "premium1-004",
+      "optionA": "Chew aluminum foil for an hour",
+      "optionB": "Listen to nails on a chalkboard for an hour"
+    },
+    {
+      "id": "premium1-005",
+      "optionA": "Go on a date with your parents watching from the next table",
+      "optionB": "Go on a date with your ex as the waiter"
+    },
+    {
+      "id": "premium1-006",
+      "optionA": "Give up cheese forever",
+      "optionB": "Give up chocolate forever"
+    },
+    {
+      "id": "premium1-007",
+      "optionA": "Torture an innocent person for one hour until they die to save 10 strangers",
+      "optionB": "Let the 10 die"
+    },
+    {
+      "id": "premium1-008",
+      "optionA": "Wear wet socks forever",
+      "optionB": "Have a pebble in your shoe forever"
+    },
+    {
+      "id": "premium1-009",
+      "optionA": "Never use a toilet again and only go in nature",
+      "optionB": "Share your toilet with 50 strangers who can walk in anytime through a door from their own flats"
+    },
+    {
+      "id": "premium1-010",
+      "optionA": "Always be 15 minutes late",
+      "optionB": "Always be 1 hour early"
+    },
+    {
+      "id": "premium1-011",
+      "optionA": "Have your ex as your new boss",
+      "optionB": "Have your ex as your new neighbor"
+    },
+    {
+      "id": "premium1-012",
+      "optionA": "Fart every time you laugh",
+      "optionB": "Laugh every time you fart"
+    },
+    {
+      "id": "premium1-013",
+      "optionA": "Be stranded on an island alone",
+      "optionB": "Be stranded on an island with your most annoying coworker"
+    },
+    {
+      "id": "premium1-014",
+      "optionA": "Sleep once with the ugliest person in the world for 1 million",
+      "optionB": "Say no"
+    },
+    {
+      "id": "premium1-015",
+      "optionA": "Have your genitals swap places with your armpit",
+      "optionB": "Have your genitals swap places with your knee"
+    },
+    {
+      "id": "premium1-016",
+      "optionA": "Cut off your own finger for 500k",
+      "optionB": "Have a doctor cut off your finger for 100k"
+    },
+    {
+      "id": "premium1-017",
+      "optionA": "Land in the first boat on Omaha Beach on D-Day",
+      "optionB": "Spend the winter of 1942 in Stalingrad"
+    },
+    {
+      "id": "premium1-018",
+      "optionA": "Live as a medieval peasant during the plague",
+      "optionB": "Live as a pirate with scurvy"
+    },
+    {
+      "id": "premium1-019",
+      "optionA": "Eat your own vomit",
+      "optionB": "Eat a salad that someone else chewed and spat out"
+    },
+    {
+      "id": "premium1-020",
+      "optionA": "Become a billionaire, but every time you spend money, even on something small, a stranger loses a week of their life",
+      "optionB": "Stay normal"
+    },
+    {
+      "id": "premium1-021",
+      "optionA": "Never have an orgasm again",
+      "optionB": "Have one every time someone says hello"
+    },
+    {
+      "id": "premium1-022",
+      "intro": "You're the judge.",
+      "optionA": "Sentence an innocent man to death to stop a riot that will kill 50 people",
+      "optionB": "Let the riot happen"
+    },
+    {
+      "id": "premium1-023",
+      "optionA": "Drink a liter of water from a public swimming pool",
+      "optionB": "Drink a cup of water from a festival porta-potty"
+    },
+    {
+      "id": "premium1-024",
+      "optionA": "Get pooped on by a pigeon every day",
+      "optionB": "Step in dog poop every day"
+    },
+    {
+      "id": "premium1-025",
+      "optionA": "Wake up next to a very ugly naked stranger with no memory of last night",
+      "optionB": "Wake up in a bathtub missing a kidney"
+    },
+    {
+      "id": "premium1-026",
+      "optionA": "Donate one of your kidneys to a stranger",
+      "optionB": "Let that stranger die and never tell anyone"
+    },
+    {
+      "id": "premium1-027",
+      "optionA": "Swallow a live goldfish",
+      "optionB": "Swallow a spoonful of hair from the shower drain"
+    },
+    {
+      "id": "premium1-028",
+      "optionA": "Have nipples that leak milk when you're hungry",
+      "optionB": "Have a nose that runs when you're horny"
+    },
+    {
+      "id": "premium1-029",
+      "optionA": "Spend 24 hours in a room full of non-poisonous spiders",
+      "optionB": "Spend 24 hours buried alive in a coffin with just barely enough air to survive"
+    },
+    {
+      "id": "premium1-030",
+      "optionA": "Have the worst hangover of your life every Monday",
+      "optionB": "Never be able to drink alcohol again"
+    },
+    {
+      "id": "premium1-031",
+      "optionA": "Go to heaven while everyone you love goes to hell",
+      "optionB": "Go to hell together with all of them"
+    },
+    {
+      "id": "premium1-032",
+      "optionA": "Have explosive diarrhea on a crowded tram",
+      "optionB": "Projectile vomit at a funeral"
+    },
+    {
+      "id": "premium1-033",
+      "intro": "The Titanic is sinking.",
+      "optionA": "Push a mother out of the last seat in the lifeboat and take it yourself",
+      "optionB": "Drown"
+    },
+    {
+      "id": "premium1-034",
+      "optionA": "Painfully poop exactly 1 kg every night at 3 a.m.",
+      "optionB": "Have to pee every 20 minutes for the rest of your life"
+    },
+    {
+      "id": "premium1-035",
+      "optionA": "Get bitten by your own dog once a year",
+      "optionB": "Have to bite a stranger on the bus once a year"
+    },
+    {
+      "id": "premium1-036",
+      "optionA": "Be operated on by a drunk surgeon",
+      "optionB": "Perform an operation on someone yourself, sober, with only a YouTube tutorial"
+    },
+    {
+      "id": "premium1-037",
+      "optionA": "Be the only survivor of a plane crash",
+      "optionB": "Die with everyone else and be remembered as a hero"
+    },
+    {
+      "id": "premium1-038",
+      "optionA": "Have your best friend secretly sleep with your partner and you never find out",
+      "optionB": "Find out and have to stay friends"
+    },
+    {
+      "id": "premium1-039",
+      "optionA": "Erase your memories of the last 10 years",
+      "optionB": "Lose 10 years from the end of your life"
+    },
+    {
+      "id": "premium1-040",
+      "optionA": "Have stiff, straight legs without knees",
+      "optionB": "Have stiff, straight arms without elbows"
+    },
+    {
+      "id": "premium1-041",
+      "optionA": "Forget all your memories with your friends",
+      "optionB": "Have them forget all their memories with you"
+    },
+    {
+      "id": "premium1-042",
+      "optionA": "Survive one month with no tools in a dangerous slum in a foreign country where you don't speak the language",
+      "optionB": "Survive one month with no tools in the African wilderness with extreme heat and hungry animals"
+    },
+    {
+      "id": "premium1-043",
+      "optionA": "Have your parents read every message you sent in the last 5 years",
+      "optionB": "Have your boss read every message you sent at work"
+    },
+    {
+      "id": "premium1-044",
+      "optionA": "Have to lick every doorknob you touch",
+      "optionB": "Have to sniff every chair before you sit down"
+    },
+    {
+      "id": "premium1-045",
+      "optionA": "Never be able to wear pants again",
+      "optionB": "Never be able to wear shoes again"
+    },
+    {
+      "id": "premium1-046",
+      "optionA": "Have an AI that runs your life perfectly but you can never say no to it",
+      "optionB": "Live a messy life completely on your own"
+    },
+    {
+      "id": "premium1-047",
+      "optionA": "Be able to talk to animals but they all insult you",
+      "optionB": "Understand babies but they only complain"
+    },
+    {
+      "id": "premium1-048",
+      "optionA": "Travel 100 years into the future and never come back",
+      "optionB": "Travel 100 years into the past and never come back"
+    },
+    {
+      "id": "premium1-049",
+      "optionA": "Be stuck on a 20-hour flight next to a screaming baby",
+      "optionB": "Be stuck on a 20-hour flight next to someone who farts silently every 10 minutes"
+    },
+    {
+      "id": "premium1-050",
+      "intro": "Your country decides to conquer the world. After a bloody 5-year war it wins completely: everyone speaks your language, and you're part of the ruling class with lots of benefits.",
+      "optionA": "Yes",
+      "optionB": "No"
+    }
+  ]
+}

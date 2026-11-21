@@ -36,6 +36,7 @@ import com.wouldyouratherextreme.game.ui.theme.WouldYouRatherExtremeTheme
 @Composable
 fun FinishedScreen(
     total: Int,
+    showPremiumOffer: Boolean,
     onReshuffle: () -> Unit,
     onPremium: () -> Unit,
     onHome: () -> Unit,
@@ -76,7 +77,11 @@ fun FinishedScreen(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "Still friends? Go again in a new order, or unlock more insane questions.",
+            text = if (showPremiumOffer) {
+                "Still friends? Go again in a new order, or unlock more insane questions."
+            } else {
+                "Still friends? Go again in a new order."
+            },
             style = MaterialTheme.typography.bodyLarge,
             color = MaterialTheme.colorScheme.onBackground,
             textAlign = TextAlign.Center,
@@ -98,24 +103,27 @@ fun FinishedScreen(
             )
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        // Players who already have Premium do not need the offer.
+        if (showPremiumOffer) {
+            Spacer(modifier = Modifier.height(16.dp))
 
-        OutlinedButton(
-            onClick = onPremium,
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(72.dp),
-            shape = RoundedCornerShape(36.dp),
-            border = BorderStroke(2.dp, MaterialTheme.colorScheme.secondary),
-            colors = ButtonDefaults.outlinedButtonColors(
-                contentColor = MaterialTheme.colorScheme.secondary,
-            ),
-        ) {
-            Text(
-                text = "Get more questions",
-                style = MaterialTheme.typography.titleLarge,
-                fontWeight = FontWeight.Bold,
-            )
+            OutlinedButton(
+                onClick = onPremium,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(72.dp),
+                shape = RoundedCornerShape(36.dp),
+                border = BorderStroke(2.dp, MaterialTheme.colorScheme.secondary),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    contentColor = MaterialTheme.colorScheme.secondary,
+                ),
+            ) {
+                Text(
+                    text = "Get more questions",
+                    style = MaterialTheme.typography.titleLarge,
+                    fontWeight = FontWeight.Bold,
+                )
+            }
         }
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -126,6 +134,6 @@ fun FinishedScreen(
 @Composable
 private fun FinishedScreenPreview() {
     WouldYouRatherExtremeTheme {
-        FinishedScreen(total = 50, onReshuffle = {}, onPremium = {}, onHome = {})
+        FinishedScreen(total = 50, showPremiumOffer = true, onReshuffle = {}, onPremium = {}, onHome = {})
     }
 }

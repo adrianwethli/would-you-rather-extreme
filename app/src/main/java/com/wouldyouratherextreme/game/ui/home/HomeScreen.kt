@@ -28,6 +28,7 @@ import com.wouldyouratherextreme.game.ui.theme.WouldYouRatherExtremeTheme
 fun HomeScreen(
     onPlay: () -> Unit,
     onPremium: () -> Unit,
+    premiumUnlocked: Boolean = false,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -81,7 +82,7 @@ fun HomeScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        PremiumCard(onClick = onPremium)
+        PremiumCard(unlocked = premiumUnlocked, onClick = onPremium)
 
         Spacer(modifier = Modifier.height(12.dp))
 
@@ -96,7 +97,7 @@ fun HomeScreen(
 
 /** The Premium section on the home screen. Tapping it opens the Premium page. */
 @Composable
-private fun PremiumCard(onClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun PremiumCard(unlocked: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
     Surface(
         onClick = onClick,
         modifier = modifier.fillMaxWidth(),
@@ -119,7 +120,7 @@ private fun PremiumCard(onClick: () -> Unit, modifier: Modifier = Modifier) {
                 color = MaterialTheme.colorScheme.onSurface,
             )
             Text(
-                text = "See what's inside →",
+                text = if (unlocked) "Unlocked ✓" else "See what's inside →",
                 style = MaterialTheme.typography.labelLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.secondary,

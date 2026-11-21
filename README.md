@@ -4,16 +4,15 @@ A native Android party game for groups sharing one phone. Dark, modern look. Wor
 
 ## Status
 
-**Stage 1 - first playable prototype.** A home screen with a Play button and a Premium card, a game screen with two large answer cards and a Next button (questions come in a random order), an end-of-round screen with "Reshuffle questions" and "Get more questions" buttons, and a Premium preview page (the unlock button is switched off until Google Play Billing is added). An adults-only (18+) warning screen appears first when the app starts. The 50 free questions are loaded from a file inside the app (`app/src/main/assets/questions/free_pack.json`). Saved progress and the 50 premium questions come in later stages.
+**Stage 1 - first playable prototype.** A home screen with a Play button and a Premium card, a game screen with two large answer cards and a Next button (questions come in a random order), an end-of-round screen with "Reshuffle questions" and "Get more questions" buttons, and a Premium preview page (the unlock button is switched off until Google Play Billing is added). An adults-only (18+) warning screen appears first when the app starts. The 50 free questions are loaded from a file inside the app (`app/src/main/assets/questions/free_pack.json`). The 50 premium questions are in `premium_pack_01.json`. **In the test version** (the debug APK from the cloud build) the Premium page has an "Unlock Premium (test)" button that simulates the purchase, so all 100 questions can be played without paying. It exists only in debug builds; in a public release build the unlock stays switched off until Google Play Billing is added. Saved progress comes in a later stage.
 
 ## Questions
 
-Questions live in JSON files, not in the code. Each question has two answer cards (`optionA`, `optionB`) and an optional `intro` for questions that start with a short set-up story. A new pack is a new JSON file in `app/src/main/assets/questions/`. Unit tests check the real file on every build (exact count, unique ids, no empty text).
+Questions live in JSON files, not in the code. Each question has two answer cards (`optionA`, `optionB`) and an optional `intro` for questions that start with a short set-up story. A new premium pack is a new file named `premium_pack_02.json` (and so on) in `app/src/main/assets/questions/`; the app finds it automatically. Unit tests check the real file on every build (exact count, unique ids, no empty text).
 
 ## Planned
 
-- 50 premium questions (the 50 free ones are in)
-- Save each phone's shuffled question order and progress locally, once all 100 questions are in
+- Save each phone's shuffled question order and progress locally (now that all 100 questions are in)
 - Remember the 18+ confirmation between app starts
 - More premium packs added over time
 - One-time premium unlock through Google Play Billing

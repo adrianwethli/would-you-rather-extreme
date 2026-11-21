@@ -12,6 +12,7 @@ import androidx.compose.runtime.setValue
 import com.wouldyouratherextreme.game.domain.Choice
 import com.wouldyouratherextreme.game.domain.GameSession
 import com.wouldyouratherextreme.game.domain.Question
+import com.wouldyouratherextreme.game.domain.QuestionLibrary
 import com.wouldyouratherextreme.game.ui.agegate.AgeGateScreen
 import com.wouldyouratherextreme.game.ui.game.FinishedScreen
 import com.wouldyouratherextreme.game.ui.game.GameScreen
@@ -28,18 +29,34 @@ private enum class Screen { AGE_GATE, HOME, GAME, PREMIUM, FINISHED }
  * Root of the app. With only a few screens, a simple switch between them is enough;
  * a proper navigation library can be added later if the app grows.
  *
- * [questions] are all the questions the players can currently play (the free pack for now).
+ * - [library] holds the free and the premium questions.
+ * - [allowTestUnlock] is true only in test builds: it lets the Premium page simulate a purchase
+ *   without paying, so the extra questions can be tried. Real purchases (Google Play Billing) come later.
  */
 @Composable
-fun WouldYouRatherExtremeApp(questions: List<Question>, onExit: () -> Unit) {
+fun WouldYouRatherExtremeApp(
+    library: QuestionLibrary,
+    allowTestUnlock: Boolean,
+    onExit: () -> Unit,
+) {
     // The 18+ warning shows every time the app starts, until it is confirmed.
     // (Remembering the answer between starts comes later, together with saved progress.)
     var ageConfirmed by rememberSaveable { mutableStateOf(false) }
     var screen by rememberSaveable { mutableStateOf(Screen.HOME) }
+    // For now, premium is forgotten when the app is closed. Saving it comes later.
+    var premiumUnlocked by rememberSaveable { mutableStateOf(false) }
+
+    val questions = library.playable(premiumUnlocked)
     // Every new start of the app begins with the questions in a fresh random order.
     val sessionSaver = remember(questions) { gameSessionSaver(questions) }
     var session by rememberSaveable(stateSaver = sessionSaver) {
         mutableStateOf(GameSession.shuffled(questions))
+    }
+
+    val unlockForTesting = {
+        premiumUnlocked = true
+        // Start a fresh round that includes the extra questions.
+        session = GameSession.shuffled(library.playable(true))
     }
 
     val shown = when {
@@ -62,6 +79,7 @@ fun WouldYouRatherExtremeApp(questions: List<Question>, onExit: () -> Unit) {
                     screen = Screen.GAME
                 },
                 onPremium = { screen = Screen.PREMIUM },
+                premiumUnlocked = premiumUnlocked,
             )
 
             Screen.GAME -> GameScreen(
@@ -73,12 +91,17 @@ fun WouldYouRatherExtremeApp(questions: List<Question>, onExit: () -> Unit) {
 
             Screen.FINISHED -> FinishedScreen(
                 total = session.total,
+                showPremiumOffer = !premiumUnlocked,
                 onReshuffle = { session = session.reshuffled() },
                 onPremium = { screen = Screen.PREMIUM },
                 onHome = { screen = Screen.HOME },
             )
 
-            Screen.PREMIUM -> PremiumScreen(onBack = { screen = Screen.HOME })
+            Screen.PREMIUM -> PremiumScreen(
+                onBack = { screen = Screen.HOME },
+                premiumUnlocked = premiumUnlocked,
+                onTestUnlock = if (allowTestUnlock) unlockForTesting else null,
+            )
         }
     }
 }

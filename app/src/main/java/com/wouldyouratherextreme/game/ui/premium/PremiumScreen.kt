@@ -29,11 +29,19 @@ import androidx.compose.ui.unit.sp
 import com.wouldyouratherextreme.game.ui.theme.WouldYouRatherExtremeTheme
 
 /**
- * Preview of the Premium page, so we can see how it will look.
- * The unlock button is switched off: real purchases (Google Play Billing) come in a later stage.
+ * The Premium page.
+ *
+ * Real purchases (Google Play Billing) come in a later stage. Until then:
+ * - in a public build [onTestUnlock] is null and the unlock button is switched off;
+ * - in a test build [onTestUnlock] simulates the purchase, without any payment.
  */
 @Composable
-fun PremiumScreen(onBack: () -> Unit, modifier: Modifier = Modifier) {
+fun PremiumScreen(
+    onBack: () -> Unit,
+    premiumUnlocked: Boolean,
+    onTestUnlock: (() -> Unit)?,
+    modifier: Modifier = Modifier,
+) {
     BackHandler(onBack = onBack)
 
     Column(
@@ -74,8 +82,8 @@ fun PremiumScreen(onBack: () -> Unit, modifier: Modifier = Modifier) {
         }
 
         Button(
-            onClick = {},
-            enabled = false,
+            onClick = { onTestUnlock?.invoke() },
+            enabled = onTestUnlock != null && !premiumUnlocked,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 16.dp)
@@ -83,13 +91,21 @@ fun PremiumScreen(onBack: () -> Unit, modifier: Modifier = Modifier) {
             shape = RoundedCornerShape(32.dp),
         ) {
             Text(
-                text = "Unlock Premium",
+                text = when {
+                    premiumUnlocked -> "Premium unlocked ✓"
+                    onTestUnlock != null -> "Unlock Premium (test)"
+                    else -> "Unlock Premium"
+                },
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
             )
         }
         Text(
-            text = "Preview only. Purchases are not switched on yet.",
+            text = when {
+                premiumUnlocked -> "The extra questions are now in the game. Have fun!"
+                onTestUnlock != null -> "Test version: nothing is charged. This button only simulates the purchase."
+                else -> "Preview only. Purchases are not switched on yet."
+            },
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onBackground,
             textAlign = TextAlign.Center,
@@ -165,6 +181,6 @@ private fun IncludedCard(modifier: Modifier = Modifier) {
 @Composable
 private fun PremiumScreenPreview() {
     WouldYouRatherExtremeTheme {
-        PremiumScreen(onBack = {})
+        PremiumScreen(onBack = {}, premiumUnlocked = false, onTestUnlock = null)
     }
 }
