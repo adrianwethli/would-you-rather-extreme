@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         )
         setContent {
             WouldYouRatherExtremeTheme {
-                WouldYouRatherExtremeApp()
+                WouldYouRatherExtremeApp(onExit = { finish() })
             }
         }
     }

@@ -10,30 +10,46 @@ import androidx.compose.runtime.setValue
 import com.wouldyouratherextreme.game.data.SampleQuestions
 import com.wouldyouratherextreme.game.domain.Choice
 import com.wouldyouratherextreme.game.domain.GameSession
+import com.wouldyouratherextreme.game.ui.agegate.AgeGateScreen
 import com.wouldyouratherextreme.game.ui.game.FinishedScreen
 import com.wouldyouratherextreme.game.ui.game.GameScreen
 import com.wouldyouratherextreme.game.ui.home.HomeScreen
 import com.wouldyouratherextreme.game.ui.premium.PremiumScreen
 
-/** FINISHED is not stored: it is shown automatically when the game is on and the round is over. */
-private enum class Screen { HOME, GAME, PREMIUM, FINISHED }
+/**
+ * AGE_GATE and FINISHED are never stored as "the current screen": they are shown automatically
+ * (before the age is confirmed, and when the round is over).
+ */
+private enum class Screen { AGE_GATE, HOME, GAME, PREMIUM, FINISHED }
 
 /**
  * Root of the app. With only a few screens, a simple switch between them is enough;
  * a proper navigation library can be added later if the app grows.
  */
 @Composable
-fun WouldYouRatherExtremeApp() {
+fun WouldYouRatherExtremeApp(onExit: () -> Unit) {
+    // The 18+ warning shows every time the app starts, until it is confirmed.
+    // (Remembering the answer between starts comes later, together with saved progress.)
+    var ageConfirmed by rememberSaveable { mutableStateOf(false) }
     var screen by rememberSaveable { mutableStateOf(Screen.HOME) }
     // Every new start of the app begins with the questions in a fresh random order.
     var session by rememberSaveable(stateSaver = GameSessionSaver) {
         mutableStateOf(GameSession.shuffled(SampleQuestions.all))
     }
 
-    val shown = if (screen == Screen.GAME && session.finished) Screen.FINISHED else screen
+    val shown = when {
+        !ageConfirmed -> Screen.AGE_GATE
+        screen == Screen.GAME && session.finished -> Screen.FINISHED
+        else -> screen
+    }
 
     Crossfade(targetState = shown, label = "screen") { current ->
         when (current) {
+            Screen.AGE_GATE -> AgeGateScreen(
+                onConfirm = { ageConfirmed = true },
+                onLeave = onExit,
+            )
+
             Screen.HOME -> HomeScreen(
                 onPlay = {
                     // Coming back to a round that is already over starts a new shuffled round.

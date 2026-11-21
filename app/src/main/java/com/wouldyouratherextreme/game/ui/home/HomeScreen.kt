@@ -82,6 +82,15 @@ fun HomeScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         PremiumCard(onClick = onPremium)
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        Text(
+            text = "Adults only · 18+",
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onBackground,
+            textAlign = TextAlign.Center,
+        )
     }
 }
 
