@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.wouldyouratherextreme.game.data.QuestionRepository
 import com.wouldyouratherextreme.game.ui.WouldYouRatherExtremeApp
 import com.wouldyouratherextreme.game.ui.theme.WouldYouRatherExtremeTheme
 
@@ -17,9 +18,11 @@ class MainActivity : ComponentActivity() {
             statusBarStyle = SystemBarStyle.dark(AndroidColor.TRANSPARENT),
             navigationBarStyle = SystemBarStyle.dark(AndroidColor.TRANSPARENT),
         )
+        // The questions are stored inside the app (assets/questions), so the game works offline.
+        val questions = QuestionRepository(assets).loadFreePack().questions
         setContent {
             WouldYouRatherExtremeTheme {
-                WouldYouRatherExtremeApp(onExit = { finish() })
+                WouldYouRatherExtremeApp(questions = questions, onExit = { finish() })
             }
         }
     }

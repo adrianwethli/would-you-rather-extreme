@@ -1,0 +1,260 @@
+{
+  "packId": "free",
+  "premium": false,
+  "questions": [
+    {
+      "id": "free-001",
+      "optionA": "Eat a piece of shit once",
+      "optionB": "Never need to brush your teeth again because they're always clean"
+    },
+    {
+      "id": "free-002",
+      "optionA": "Have toes instead of fingers",
+      "optionB": "Have fingers instead of toes"
+    },
+    {
+      "id": "free-003",
+      "optionA": "Receive one million dollars while a random person somewhere in the world dies painfully",
+      "optionB": "Say no"
+    },
+    {
+      "id": "free-004",
+      "optionA": "Kill Hitler and save millions of innocent lives, at the risk of never being born because history changes",
+      "optionB": "Keep living your comfy, meaningless life"
+    },
+    {
+      "id": "free-005",
+      "intro": "Today a baby is born somewhere in Germany (of course) who will start World War III in 40 years. You can kill this baby, but only with your bare hands.",
+      "optionA": "Yes, I would do it",
+      "optionB": "No, I would not"
+    },
+    {
+      "id": "free-006",
+      "optionA": "Eat a spoonful of your best friend's pee",
+      "optionB": "Drink a glass of your own sweat"
+    },
+    {
+      "id": "free-007",
+      "intro": "A very rich person wants to live out his fetish by shitting on your belly, and offers you 100k. No sex, but traumatic pictures in your head for the rest of your life.",
+      "optionA": "Yes, I would do it",
+      "optionB": "No, I would not"
+    },
+    {
+      "id": "free-008",
+      "optionA": "Always have silent farts that smell like rotten eggs",
+      "optionB": "Always have trumpet-loud farts that smell like roses"
+    },
+    {
+      "id": "free-009",
+      "optionA": "Have a tongue 30 cm long",
+      "optionB": "Have a nose that drips nonstop"
+    },
+    {
+      "id": "free-010",
+      "optionA": "Shit your pants once a month",
+      "optionB": "Puke on your boss once a year"
+    },
+    {
+      "id": "free-011",
+      "optionA": "Have a very small penis on your forehead",
+      "optionB": "Have two very small vaginas, one on each cheek"
+    },
+    {
+      "id": "free-012",
+      "optionA": "Sweat mayonnaise",
+      "optionB": "Cry ketchup"
+    },
+    {
+      "id": "free-013",
+      "optionA": "Have no genitals and pee through your index finger",
+      "optionB": "Have a voice that sounds like a chipmunk"
+    },
+    {
+      "id": "free-014",
+      "optionA": "Say \"daddy\" after every sentence",
+      "optionB": "Call everyone \"my sexy little potato\""
+    },
+    {
+      "id": "free-015",
+      "optionA": "Only be able to giggle during sex instead of talking",
+      "optionB": "Only be able to shout \"Faster, mein Führer!\""
+    },
+    {
+      "id": "free-016",
+      "optionA": "Get diarrhea during every job interview",
+      "optionB": "Get diarrhea during your wedding vows"
+    },
+    {
+      "id": "free-017",
+      "optionA": "Sneeze out of your butt",
+      "optionB": "Fart out of your mouth"
+    },
+    {
+      "id": "free-018",
+      "optionA": "Have your nudes on a billboard in your hometown",
+      "optionB": "Have your 100% honest diary published as a bestseller"
+    },
+    {
+      "id": "free-019",
+      "optionA": "Suddenly lick a stranger's nose on the tram",
+      "optionB": "Have a stranger suddenly lick yours"
+    },
+    {
+      "id": "free-020",
+      "optionA": "Work naked for one day",
+      "optionB": "Wear a clown costume to work for a year"
+    },
+    {
+      "id": "free-021",
+      "optionA": "Make goat noises every time you climax",
+      "optionB": "Wet yourself every time you sneeze"
+    },
+    {
+      "id": "free-022",
+      "optionA": "Greet everyone you meet by sniffing their butt like a dog",
+      "optionB": "Greet everyone you meet by licking their face"
+    },
+    {
+      "id": "free-023",
+      "optionA": "Have a mustache made of pubic hair",
+      "optionB": "Have eyebrows made of armpit hair"
+    },
+    {
+      "id": "free-024",
+      "optionA": "Only ever have sex in total darkness",
+      "optionB": "Only ever have sex with the lights on and your parents' photos on the walls"
+    },
+    {
+      "id": "free-025",
+      "intro": "It's 1850, the peak of slavery in a southern US state.",
+      "optionA": "Be a slave owner with no friends",
+      "optionB": "Be a slave with lots of friends who suffers everything slavery brings"
+    },
+    {
+      "id": "free-026",
+      "optionA": "Fight in the trenches of World War I for 4 years with a 60% chance of survival",
+      "optionB": "Fight one person to the death with your bare hands"
+    },
+    {
+      "id": "free-027",
+      "optionA": "Eat a raw onion like an apple in front of your crush or partner without explaining why",
+      "optionB": "Make out with someone who just ate a raw onion"
+    },
+    {
+      "id": "free-028",
+      "optionA": "Have ears that turn bright red whenever you're horny",
+      "optionB": "Have a nose that grows like Pinocchio's every time you lie"
+    },
+    {
+      "id": "free-029",
+      "optionA": "Have armpits that smell like a kebab shop",
+      "optionB": "Have feet that smell like cheese fondue"
+    },
+    {
+      "id": "free-030",
+      "optionA": "Have one fart a day that lasts 3 minutes",
+      "optionB": "Have a tiny squeaky fart every 5 minutes"
+    },
+    {
+      "id": "free-031",
+      "optionA": "Have teeth that grow back every night but fall out at lunch",
+      "optionB": "Have toenails that grow 5 cm a day"
+    },
+    {
+      "id": "free-032",
+      "optionA": "Sing everything you say with no way to speak normally",
+      "optionB": "Dance everywhere you go with no way to walk normally"
+    },
+    {
+      "id": "free-033",
+      "optionA": "Have permanent hiccups for the rest of your life",
+      "optionB": "Have tinnitus for the rest of your life"
+    },
+    {
+      "id": "free-034",
+      "optionA": "Eat human meat yourself",
+      "optionB": "Invite friends to dinner and secretly serve them human meat without anyone ever finding out"
+    },
+    {
+      "id": "free-035",
+      "optionA": "Know the exact date of your death",
+      "optionB": "Know the exact way you'll die"
+    },
+    {
+      "id": "free-036",
+      "optionA": "Give up your phone forever",
+      "optionB": "Give up sex forever"
+    },
+    {
+      "id": "free-037",
+      "intro": "A runaway train will kill 5 strangers.",
+      "optionA": "Push your best friend in front of it to stop it",
+      "optionB": "Let the 5 die"
+    },
+    {
+      "id": "free-038",
+      "optionA": "Have your thoughts appear as a speech bubble above your head for one day",
+      "optionB": "See everyone's thoughts about you for one day"
+    },
+    {
+      "id": "free-039",
+      "optionA": "Sleep one night in a bed full of cockroaches",
+      "optionB": "Sleep one night in a bathtub full of slugs"
+    },
+    {
+      "id": "free-040",
+      "optionA": "Moan dramatically every time you eat something tasty",
+      "optionB": "Cry every time you eat something sweet"
+    },
+    {
+      "id": "free-041",
+      "optionA": "Live 200 years in the Dark Ages",
+      "optionB": "Live 50 years today"
+    },
+    {
+      "id": "free-042",
+      "optionA": "Sneeze every time you're turned on",
+      "optionB": "Get turned on every time you sneeze"
+    },
+    {
+      "id": "free-043",
+      "optionA": "Eat a live cockroach",
+      "optionB": "Eat a cooked rat"
+    },
+    {
+      "id": "free-044",
+      "optionA": "Have private parts that glow in the dark",
+      "optionB": "Have private parts that squeak like a dog toy when touched"
+    },
+    {
+      "id": "free-045",
+      "optionA": "Be extremely hungry forever, never able to eat but never dying either, to end world hunger right now",
+      "optionB": "Say no"
+    },
+    {
+      "id": "free-046",
+      "optionA": "Speak every language in the world but be a total asshole to everyone",
+      "optionB": "Barely be able to speak your own mother tongue"
+    },
+    {
+      "id": "free-047",
+      "optionA": "Sacrifice yourself to save 100 strangers",
+      "optionB": "Let 100 strangers die while everyone knows it was your choice"
+    },
+    {
+      "id": "free-048",
+      "optionA": "Fall asleep every time you're nervous",
+      "optionB": "Laugh uncontrollably every time someone tells you something sad"
+    },
+    {
+      "id": "free-049",
+      "optionA": "Go to prison for 5 years for something you didn't do",
+      "optionB": "Let your best friend go to prison instead while everyone knows you made that choice"
+    },
+    {
+      "id": "free-050",
+      "optionA": "Have a partner who's hot but boring",
+      "optionB": "Have a partner who's ugly but hilarious"
+    }
+  ]
+}

@@ -19,7 +19,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -36,9 +38,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.wouldyouratherextreme.game.data.SampleQuestions
 import com.wouldyouratherextreme.game.domain.Choice
 import com.wouldyouratherextreme.game.domain.GameSession
+import com.wouldyouratherextreme.game.domain.Question
 import com.wouldyouratherextreme.game.ui.theme.WouldYouRatherExtremeTheme
 
 @Composable
@@ -84,13 +86,28 @@ fun GameScreen(
             label = "question",
         ) { question ->
             Column(modifier = Modifier.fillMaxSize()) {
-                Text(
-                    text = "Would you rather…",
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.secondary,
-                    modifier = Modifier.padding(vertical = 12.dp),
-                )
+                if (question.intro == null) {
+                    Text(
+                        text = "Would you rather…",
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold,
+                        color = MaterialTheme.colorScheme.secondary,
+                        modifier = Modifier.padding(vertical = 12.dp),
+                    )
+                } else {
+                    // Set-up questions start with a short story instead of "Would you rather…".
+                    Text(
+                        text = question.intro,
+                        style = if (question.intro.length > 120) {
+                            MaterialTheme.typography.titleMedium
+                        } else {
+                            MaterialTheme.typography.titleLarge
+                        },
+                        fontWeight = FontWeight.SemiBold,
+                        color = MaterialTheme.colorScheme.onBackground,
+                        modifier = Modifier.padding(vertical = 12.dp),
+                    )
+                }
                 AnswerCard(
                     text = question.optionA,
                     isSelected = session.choice == Choice.A,
@@ -175,6 +192,7 @@ private fun AnswerCard(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(24.dp),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -191,7 +209,12 @@ private fun AnswerCard(
             }
             Text(
                 text = text,
-                style = MaterialTheme.typography.headlineMedium,
+                // Long answers get a smaller size so they fit on the card.
+                style = when {
+                    text.length > 85 -> MaterialTheme.typography.titleLarge
+                    text.length > 50 -> MaterialTheme.typography.headlineSmall
+                    else -> MaterialTheme.typography.headlineMedium
+                },
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
             )
@@ -199,12 +222,20 @@ private fun AnswerCard(
     }
 }
 
+private val previewQuestions = listOf(
+    Question(
+        id = "preview-1",
+        optionA = "Sing everything you say with no way to speak normally",
+        optionB = "Dance everywhere you go with no way to walk normally",
+    ),
+)
+
 @Preview(showBackground = true)
 @Composable
 private fun GameScreenPreview() {
     WouldYouRatherExtremeTheme {
         GameScreen(
-            session = GameSession(SampleQuestions.all, choice = Choice.A),
+            session = GameSession(previewQuestions, choice = Choice.A),
             onChoose = {},
             onNext = {},
             onBack = {},
