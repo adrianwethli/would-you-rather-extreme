@@ -130,7 +130,7 @@ fun GameScreen(
             shape = RoundedCornerShape(32.dp),
         ) {
             Text(
-                text = "Next question",
+                text = if (session.isLast) "Finish" else "Next question",
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
             )

@@ -4,7 +4,7 @@ A native Android party game for groups sharing one phone. Dark, modern look. Wor
 
 ## Status
 
-**Stage 1 - first playable prototype.** A home screen with a Play button and a Premium card, a game screen with two large answer cards and a Next button, and a Premium preview page (the unlock button is switched off until Google Play Billing is added). It uses 3 temporary sample questions; the real question packs and saved progress come in later stages.
+**Stage 1 - first playable prototype.** A home screen with a Play button and a Premium card, a game screen with two large answer cards and a Next button (questions come in a random order), an end-of-round screen with "Reshuffle questions" and "Get more questions" buttons, and a Premium preview page (the unlock button is switched off until Google Play Billing is added). It uses 3 temporary sample questions; the real question packs and saved progress come in later stages.
 
 ## Planned
 

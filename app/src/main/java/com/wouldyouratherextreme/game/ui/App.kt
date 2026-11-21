@@ -10,27 +10,36 @@ import androidx.compose.runtime.setValue
 import com.wouldyouratherextreme.game.data.SampleQuestions
 import com.wouldyouratherextreme.game.domain.Choice
 import com.wouldyouratherextreme.game.domain.GameSession
+import com.wouldyouratherextreme.game.ui.game.FinishedScreen
 import com.wouldyouratherextreme.game.ui.game.GameScreen
 import com.wouldyouratherextreme.game.ui.home.HomeScreen
 import com.wouldyouratherextreme.game.ui.premium.PremiumScreen
 
-private enum class Screen { HOME, GAME, PREMIUM }
+/** FINISHED is not stored: it is shown automatically when the game is on and the round is over. */
+private enum class Screen { HOME, GAME, PREMIUM, FINISHED }
 
 /**
- * Root of the app. With only three screens, a simple switch between them is enough;
+ * Root of the app. With only a few screens, a simple switch between them is enough;
  * a proper navigation library can be added later if the app grows.
  */
 @Composable
 fun WouldYouRatherExtremeApp() {
     var screen by rememberSaveable { mutableStateOf(Screen.HOME) }
+    // Every new start of the app begins with the questions in a fresh random order.
     var session by rememberSaveable(stateSaver = GameSessionSaver) {
-        mutableStateOf(GameSession(SampleQuestions.all))
+        mutableStateOf(GameSession.shuffled(SampleQuestions.all))
     }
 
-    Crossfade(targetState = screen, label = "screen") { current ->
+    val shown = if (screen == Screen.GAME && session.finished) Screen.FINISHED else screen
+
+    Crossfade(targetState = shown, label = "screen") { current ->
         when (current) {
             Screen.HOME -> HomeScreen(
-                onPlay = { screen = Screen.GAME },
+                onPlay = {
+                    // Coming back to a round that is already over starts a new shuffled round.
+                    if (session.finished) session = session.reshuffled()
+                    screen = Screen.GAME
+                },
                 onPremium = { screen = Screen.PREMIUM },
             )
 
@@ -41,19 +50,46 @@ fun WouldYouRatherExtremeApp() {
                 onBack = { screen = Screen.HOME },
             )
 
+            Screen.FINISHED -> FinishedScreen(
+                total = session.total,
+                onReshuffle = { session = session.reshuffled() },
+                onPremium = { screen = Screen.PREMIUM },
+                onHome = { screen = Screen.HOME },
+            )
+
             Screen.PREMIUM -> PremiumScreen(onBack = { screen = Screen.HOME })
         }
     }
 }
 
-/** Keeps the current question and pick when the phone is rotated. */
-private val GameSessionSaver = listSaver<GameSession, Int>(
-    save = { listOf(it.index, it.choice?.ordinal ?: -1) },
-    restore = {
-        GameSession(
-            questions = SampleQuestions.all,
-            index = it[0],
-            choice = Choice.entries.getOrNull(it[1]),
-        )
+// Saved layout: [index, choice (-1 = none), finished (0/1), question ids in the shuffled order...]
+private const val SAVED_HEADER_SIZE = 3
+
+/**
+ * Keeps the shuffled order, the current question, the pick and the finished state
+ * when the phone is rotated. If anything looks wrong, it quietly starts a fresh shuffled round.
+ */
+private val GameSessionSaver = listSaver<GameSession, Any>(
+    save = { session ->
+        listOf<Any>(
+            session.index,
+            session.choice?.ordinal ?: -1,
+            if (session.finished) 1 else 0,
+        ) + session.questions.map { it.id }
+    },
+    restore = { saved ->
+        val pool = SampleQuestions.all
+        val byId = pool.associateBy { it.id }
+        val ordered = saved.drop(SAVED_HEADER_SIZE).mapNotNull { byId[it as? String] }
+        if (ordered.size != pool.size) {
+            GameSession.shuffled(pool)
+        } else {
+            GameSession(
+                questions = ordered,
+                index = (saved[0] as Int).coerceIn(ordered.indices),
+                choice = Choice.entries.getOrNull(saved[1] as Int),
+                finished = saved[2] == 1,
+            )
+        }
     },
 )
