@@ -21,9 +21,19 @@ Questions live in JSON files, not in the code. Each question has two answer card
 
 Builds run in the cloud with GitHub Actions (`.github/workflows/android-build.yml`), so no local Android Studio is needed.
 
-1. Open the **Actions** tab and pick the latest **Android build** run.
-2. When it is green, download the `debug-apk` file from the **Artifacts** section.
-3. Copy the APK to an Android phone and install it.
+### Install the test version on a phone
+
+Every push to `main` that builds successfully publishes the newest test APK here:
+
+**https://github.com/adrianwethli/would-you-rather-extreme/releases/download/test-latest/WouldYouRatherExtreme-test.apk**
+
+1. Open that link in the phone's browser (if the repository is private, log in to GitHub in the browser first).
+2. Tap the downloaded file. Android asks once to allow installing from this source; allow it.
+3. If Google Play Protect warns about an unknown app, choose "Install anyway" (it is a test build that is not on the Play Store).
+
+The test build is signed with a different temporary key each time, so **uninstall the old version before installing a newer one**.
+
+The same APK is also attached to every run on the **Actions** tab, in the **Artifacts** section (`debug-apk`, as a zip file).
 
 ## Project facts
 

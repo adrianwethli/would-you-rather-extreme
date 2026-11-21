@@ -17,6 +17,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    permissions:
+      # "write" is needed only so the test APK can be published as a GitHub release (last step).
+      contents: write
 
     steps:
       - name: Check out the code
@@ -46,6 +49,24 @@ jobs:
           name: debug-apk
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
+
+      # Publishes one stable download link for the newest test build:
+      # https://github.com/<owner>/<repo>/releases/download/test-latest/WouldYouRatherExtreme-test.apk
+      # Only runs for pushes to main (not for pull requests).
+      - name: Publish the test APK as a GitHub release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cp app/build/outputs/apk/debug/*.apk WouldYouRatherExtreme-test.apk
+          NOTES="Test version for trying the game (adults only, 18+). Built from commit ${GITHUB_SHA::7}. It contains a simulated 'Unlock Premium (test)' button that charges nothing. This is not the public release."
+          gh release delete test-latest --cleanup-tag --yes || true
+          gh release create test-latest WouldYouRatherExtreme-test.apk \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --prerelease \
+            --title "Test version (latest)" \
+            --notes "$NOTES"
 
       - name: Upload reports if something failed
         if: failure()
